@@ -66,14 +66,28 @@ If you are using a framework, such as oh-my-zsh, use these lines. (Be sure
 that if you make future changes to .zshrc these lines remain _below_ the line
 where you source your framework.)
 
+Installation via **Git**:
+
 ```shell
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.zshrc
 echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
 ```
 
-If you are not using a framework, or if on starting your shell you get an
-error message like 'command not found: compinit', then add this line before
-the ones above.
+Installation via **Homebrew**:
+
+?> If you have Homebrew's Bash completions configured, the second line below is
+unnecessary. See [Configuring Completions
+in Bash](https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash)
+in the Homebrew docs.
+
+```shell
+echo -e '\n. $(brew --prefix asdf)/asdf.sh' >> ~/.zshrc
+echo -e '\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash' >> ~/.zshrc
+```
+
+Regardless of your installation method: If you are not using a framework,
+or if on starting your shell you get an error message like
+'command not found: compinit', add this line before the ones above.
 
 ```shell
 autoload -Uz compinit && compinit
